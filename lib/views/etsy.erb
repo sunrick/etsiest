@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <title> Etsy copy </title>
+    <link href="<%= url('/normalize.css') %>" rel="stylesheet" type="text/css" />
+    <link href="<%= url('/main.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+  <div class="main">
+    <nav>
+      <div class="navigation">
+        <div class="navigation-980">
+          <div class="logo">
+            <img src="https://www.etsy.com/assets/dist/images/etsylogo@2x.20150529203416.png" alt="logo">
+          </div>
+          <div class="search">
+            <form method="get" action="/etsy_search" >
+              <input class="input-search" type="text" name="q">
+              <button class="button-search" type="submit" value="q">
+                Search
+              </button>
+            <form>
+          </div>
+          <div class="browse">
+            <a href="#">Browse</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="#">You</a></li>
+            <li><a href="#">Cart</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container">
+        <div class="results">
+          <div class="show">
+            <strong><span> Show results for: </span></strong>
+          </div>
+          <div class="results-count">
+            <a href="#">All Categories</a>
+            <strong><span> > </span></strong>
+            <strong><span>"<%= @search %>"</span></strong>
+            <span> (<%= @results.length %> Results) </span>
+            <div class="sortby">
+              <span> Sort by: </span>
+              <a href="#"> Relevancy </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="sidebar">
+          <ul>
+            <li class="header">All Categories</li>
+            <li><a href="#">Home & Living</a></li>
+            <li><a href="#">Art & Collectibles</a></li>
+            <li><a href="#">Weddings</a></li>
+            <li><a href="#">Clothing</a></li>
+            <li><a href="#">Jewelry</a></li>
+            <li><a href="#">Paper & Party Supplies</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Craft Supplies & Tools</a></li>
+            <li><a href="#">Bags & Purses</a></li>
+            <li><a href="#">Bath & Beauty</a></li>
+            <li><a href="#">Shoes</a></li>
+            <li><a href="#">Books, Movies & Music</a></li>
+            <li><a href="#">Electronics & Accessories</a></li>
+            <li><a href="#">Pet Supplies</a></li>
+            <li><a href="#">Toys & Games</a></li>
+          </ul>
+        </div>
+        <ul class="products">
+          <% @results.each do |result| %>
+            <li class="product">
+              <img src="<%= result[:image_url] %>">
+              <div class="details">
+                <p class="title"><%= result[:title] %></p>
+                <p class="shop"><%= result[:shop] %></p>
+                <p class="price"><%= result[:price] %></p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

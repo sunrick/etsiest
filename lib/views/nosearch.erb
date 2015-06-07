@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title> Etsy copy </title>
+    <link href="<%= url('/normalize.css') %>" rel="stylesheet" type="text/css" />
+    <link href="<%= url('/main.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+  <div class="main">
+    <nav>
+      <div class="navigation">
+        <div class="navigation-980">
+          <div class="logo">
+            <img src="https://www.etsy.com/assets/dist/images/etsylogo@2x.20150529203416.png" alt="logo">
+          </div>
+          <div class="search">
+            <form method="get" action="/etsy_search" >
+              <input class="input-search" type="text" name="q">
+              <button class="button-search" type="submit" value="q">
+                Search
+              </button>
+            </form>
+          </div>
+          <div class="browse">
+            <a href="#">Browse</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="#">You</a></li>
+            <li><a href="#">Cart</a></li>
+          </ul>
+        </div>
+        <div class="content">
+          <div class="container">
+          <p class="nope">
+            YOU DIDN'T SEARCH FOR ANYTHING DUMMY!
+          </p>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  </body>
+</html>

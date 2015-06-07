@@ -12,20 +12,25 @@ module Etsiest
   
     get '/etsy_search' do
       @search = params['q']
-      @results = []
-      response = Etsy::Request.get('/listings/active', :includes => ['Images', 'Shop'], :keywords => "#{@search}")
-      response = JSON.parse(response.body)['results']
-      response.map do |listing|
-        listing_hash = {
-          title: listing['title'],
-          price: listing['price'],
-          url: listing['url'],
-          shop: listing['Shop']['shop_name'],
-          image_url: listing['Images'][0]['url_170x135']
-        }
-        @results << listing_hash
+      if @search == ""
+        "You didn't type in a search term."
+        erb :nosearch
+      else
+        @results = []
+        response = Etsy::Request.get('/listings/active', :includes => ['Images', 'Shop'], :keywords => "#{@search}")
+        response = JSON.parse(response.body)['results']
+        response.map do |listing|
+          listing_hash = {
+            title: listing['title'],
+            price: listing['price'],
+            url: listing['url'],
+            shop: listing['Shop']['shop_name'],
+            image_url: listing['Images'][0]['url_170x135']
+          }
+          @results << listing_hash
+        end
+        erb :etsy
       end
-      erb :etsy
     end
 
     get '/' do

@@ -74,14 +74,7 @@
         </div>
         <ul class="products">
           <% @results.each do |result| %>
-            <li class="product">
-              <img src="<%= result[:image_url] %>">
-              <div class="details">
-                <p class="title"><%= result[:title] %></p>
-                <p class="shop"><%= result[:shop] %></p>
-                <p class="price"><%= result[:price] %></p>
-              </div>
-            </li>
+            <%= erb :product, locals: { result: result } %>
           <% end %>
         </ul>
       </div>

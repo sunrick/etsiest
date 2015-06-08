@@ -15,6 +15,8 @@ module Etsiest
       if @search == ""
         "You didn't type in a search term."
         erb :nosearch
+      elsif @search == nil
+        erb :nosearch
       else
         @results = []
         response = Etsy::Request.get('/listings/active', :includes => ['Images', 'Shop'], :keywords => "#{@search}")
@@ -32,11 +34,7 @@ module Etsiest
         erb :etsy
       end
     end
-
-    get '/' do
-    end
-
-
+    
     run! if app_file == $0
   end
 end

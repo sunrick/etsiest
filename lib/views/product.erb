@@ -1,7 +1,7 @@
 <li class="product">
-  <img src="<%= result[:image_url] %>">
+  <a href="<%= result[:url] %>"><img src="<%= result[:image_url] %>"></a>
   <div class="details">
-    <p class="title"><%= result[:title] %></p>
+    <a href="<%= result[:url] %>"><p class="title"><%= result[:title] %></p></a>
     <p class="shop"><%= result[:shop] %></p>
     <p class="price"><%= result[:price] %></p>
   </div>

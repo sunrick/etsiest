@@ -23,7 +23,7 @@ module Etsiest
         response = JSON.parse(response.body)['results']
         response.map do |listing|
           listing_hash = {
-            url: listing['url']
+            url: listing['url'],
             title: listing['title'],
             price: listing['price'],
             url: listing['url'],
